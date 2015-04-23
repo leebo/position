@@ -4,4 +4,6 @@ class Subscriber
   field :mdn,type: String
   field :emsi,type:String
 
+  has_many :positions
+
 end
