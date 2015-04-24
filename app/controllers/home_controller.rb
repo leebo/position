@@ -1,10 +1,17 @@
 class HomeController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update, :destroy]
+  #skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
   # GET /home
   # GET /home.json
   def index
     @homes = Home.all
+  end
+
+  def get_json
+    #respond_to :json
+    puts params[:username]
   end
 
   # GET /home/1

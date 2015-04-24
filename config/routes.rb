@@ -61,4 +61,7 @@ Rails.application.routes.draw do
        # (app/controllers/admin/products_controller.rb)
        resources :home
      end
+  resources :home do
+    post 'get_json',on: :collection
+  end
 end
