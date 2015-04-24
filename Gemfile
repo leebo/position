@@ -41,6 +41,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#以下是自己添加的gem扩展
 gem 'mongoid'
 gem 'devise'
 
+#附件管理插件
+gem 'carrierwave-mongoid'
+gem 'mini_magick'
