@@ -10,8 +10,25 @@ class HomeController < ApplicationController
   end
 
   def get_json
-    #respond_to :json
-    puts params[:username]
+    name = params[:name]
+    mdn = params[:mdn]
+    emsi = params[:emsi]
+    subscriber = Subscriber.new
+    subscriber.add_name(name,mdn,emsi)
+    render :text=>"ok"
+  end
+
+  def add_geo
+    mdn = params[:mdn]
+    lat = params[:lat]
+    lng = params[:lng]
+    time = Time.now
+    sub = Subscriber.where(:mdn=>mdn)[0]
+    postion = sub.postions.new
+    postion.geo = {lat:lat,lng:lng}
+    postion.time = time
+    postion.save
+    render :text=>"ok"
   end
 
   # GET /home/1
