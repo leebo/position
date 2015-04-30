@@ -60,6 +60,7 @@ Rails.application.routes.draw do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
        resources :home
+       post 'abc#def'
      end
   resources :home do
     post 'get_json',on: :collection
