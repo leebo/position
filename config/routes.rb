@@ -56,13 +56,26 @@ Rails.application.routes.draw do
   #   end
 
 
-     namespace :admin do
-       # Directs /admin/products/* to Admin::ProductsController
-       # (app/controllers/admin/products_controller.rb)
-       resources :home
-       post 'abc#def'
-     end
+  namespace :admin do
+    # Directs /admin/products/* to Admin::ProductsController
+    # (app/controllers/admin/products_controller.rb)
+    resources :home
+    #post 'abc#def'
+  end
+
+  namespace :attachment do
+    # Directs /admin/products/* to Admin::ProductsController
+    # (app/controllers/admin/products_controller.rb)
+    resources :assets do
+      collection do
+        get 'sold'
+      end
+    end
+    #post 'create'
+    #post 'abc#def'
+  end
+
   resources :home do
-    post 'get_json',on: :collection
+    post 'get_json', on: :collection
   end
 end
