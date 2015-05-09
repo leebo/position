@@ -1,0 +1,27 @@
+<h1>Listing my_test_rooms</h1>
+<IMG src="/assets/my_test/rails[1].png">
+<%= image_tag 'my_test/rails[1].png' %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @my_test_rooms.each do |my_test_room| %>
+      <tr>
+        <td><%= my_test_room.name %></td>
+        <td><%= my_test_room.attachment.url %></td>
+        <td><%= image_tag my_test_room.attachment.url %></td>
+        <td><%= link_to 'Show', my_test_room %></td>
+        <td><%= link_to 'Edit', edit_my_test_room_path(my_test_room) %></td>
+        <td><%= link_to 'Destroy', my_test_room, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Room', new_my_test_room_path %>

@@ -1,5 +1,5 @@
-class Admin::HomeController < ApplicationController
-  layout "back/admin"
+class Provider::ProductsController < ApplicationController
+  # layout "back/admin"
   before_action :set_admin_home, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/products
@@ -63,13 +63,13 @@ class Admin::HomeController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_home
-      @admin_home = Admin::Home.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_home
+    @admin_home = Admin::Home.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_home_params
-      params[:admin_home]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_home_params
+    params[:admin_home]
+  end
 end

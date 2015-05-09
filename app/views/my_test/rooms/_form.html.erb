@@ -1,0 +1,28 @@
+<%= form_for(@my_test_room, :html => {:multipart => true}) do |f| %>
+    <% if @my_test_room.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@my_test_room.errors.count, "error") %> prohibited this my_test_room from being saved:</h2>
+
+          <ul>
+            <% @my_test_room.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <br/>
+      <%= f.text_area :name, :id=>"kindeditor_id" %>
+    </div>
+    <div class="field">
+      <%= f.label :attachment %>
+      <br/>
+      <%#= f.file_field :attachment %>
+      <input type="file" name="attachment" id="my_test_room_attachment">
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

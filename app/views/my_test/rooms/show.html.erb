@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @my_test_room.name %>   <br/>
+  <b>图片:</b>
+  <%= @my_test_room.attachment.url %>     <br/>
+  <%= image_tag @my_test_room.attachment.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_my_test_room_path(@my_test_room) %> |
+<%= link_to 'Back', my_test_rooms_path %>

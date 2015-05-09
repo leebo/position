@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :busers
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -59,9 +60,28 @@ Rails.application.routes.draw do
      namespace :admin do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
-       resources :home
+       resources :products
      end
-  resources :home do
+  resources :products do
     post 'get_json',on: :collection
   end
+
+
+  get "/upload/grid/*path" => "gridfs#serve"
+
+  namespace :attachment do
+    resources :assets
+  end
+
+  namespace :my_test do
+    resources :nodes do
+      collection do
+        post 'tree'
+      end
+    end
+    resources :rooms
+  end
+
+
+
 end

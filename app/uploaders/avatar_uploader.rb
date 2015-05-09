@@ -1,22 +1,13 @@
 # encoding: utf-8
-require 'carrierwave/processing/mini_magick'
-class Attachment::AssetUploader < CarrierWave::Uploader::Base
-  include CarrierWave::MiniMagick
-  # Include RMagick or ImageScience support:
+
+class AvatarUploader < CarrierWave::Uploader::Base
+
+  # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  # include CarrierWave::ImageScience
-
-  #CarrierWave.configure do |config|
-  #config.grid_fs_database = 'octface_development'
-  #config.grid_fs_host = 'localhost'
-  #config.grid_fs_access_url = "/images"
-  #config.storage = :grid_fs
-  #end
 
   # Choose what kind of storage to use for this uploader:
-  #storage :file
-  storage :grid_fs
+  storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -27,6 +18,9 @@ class Attachment::AssetUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
@@ -39,7 +33,7 @@ class Attachment::AssetUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   # version :thumb do
-  #   process :scale => [50, 50]
+  #   process :resize_to_fit => [50, 50]
   # end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -50,26 +44,8 @@ class Attachment::AssetUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    if original_filename
-      "octfacefile.#{split_extension(original_filename)[1]}"
-    end
-  end
-
-  private
-  def split_extension(filename)
-    # regular expressions to try for identifying extensions
-    extension_matchers = [
-        /\A(.+)\.(tar\.gz)\z/, # matches "something.tar.gz"
-        /\A(.+)\.([^\.]+)\z/ # matches "something.jpg"
-    ]
-
-    extension_matchers.each do |regexp|
-      if filename =~ regexp
-        return $1, $2
-      end
-    end
-    return filename, "" # In case we weren't able to split the extension
-  end
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
 
 end

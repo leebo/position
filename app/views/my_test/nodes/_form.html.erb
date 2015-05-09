@@ -1,0 +1,22 @@
+<%= form_for(@my_test_node) do |f| %>
+    <% if @my_test_node.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@my_test_node.errors.count, "error") %> prohibited this my_test_node from being saved:</h2>
+
+          <ul>
+            <% @my_test_node.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <br/>
+      <%= f.text_field :name %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

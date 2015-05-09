@@ -44,7 +44,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #以下是自己添加的gem扩展
 gem 'mongoid'
 gem 'devise'
-
 #附件管理插件
+gem 'carrierwave'
 gem 'carrierwave-mongoid'
 gem 'mini_magick'
+gem 'mongoid-grid_fs'
+# gem 'r2corba'
+gem 'kmeans-clustering', '~> 1.0.0'
