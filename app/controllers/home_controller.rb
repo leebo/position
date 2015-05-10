@@ -27,6 +27,7 @@ class HomeController < ApplicationController
     sub = Subscriber.where(:mdn=>mdn)[0]
     postion = sub.postions.new
     postion.geo = {lat:lat,lng:lng}
+    postion.elec = elec
     postion.time = time
     postion.save
     render :text=>"ok"

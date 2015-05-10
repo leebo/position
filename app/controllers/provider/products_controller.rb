@@ -28,17 +28,21 @@ class Provider::ProductsController < ApplicationController
     name = params[:name]
     file = params[:img]
 
-    # f1 = file.read if file != nil
-    # f1.split("\r\n").each{|line|
-    #   if line.split(",").size == 4
-    #     Subscriber.add_name
-    #   end
-    # }
-    # name.split("\r\n").each{|line|
-    #   if line.split(",").size == 4
-    #     Subscriber.add_name
-    #   end
-    # }
+    f1 = file.read if file != nil
+    f1.split("\r\n").each{|line|
+      if line.split(",").size == 4
+        arr = line.split(",")
+        subscriber = Subscriber.new
+        subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
+      end
+    }
+    name.split("\r\n").each{|line|
+      if line.split(",").size == 4
+        arr = line.split(",")
+        subscriber = Subscriber.new
+        subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
+      end
+    }
 
    redirect_to "/admin/home"
   end
