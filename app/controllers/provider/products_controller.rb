@@ -1,5 +1,5 @@
 class Provider::ProductsController < ApplicationController
-  # layout "back/admin"
+  layout "back/admin"
   before_action :set_admin_home, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/products
@@ -15,7 +15,7 @@ class Provider::ProductsController < ApplicationController
 
   # GET /admin/products/new
   def new
-    @admin_home = Admin::Home.new
+    # @provider_product = Provider::Product.new
   end
 
   # GET /admin/products/1/edit
@@ -25,17 +25,22 @@ class Provider::ProductsController < ApplicationController
   # POST /admin/products
   # POST /admin/products.json
   def create
-    @admin_home = Admin::Home.new(admin_home_params)
+    name = params[:name]
+    file = params[:img]
 
-    respond_to do |format|
-      if @admin_home.save
-        format.html { redirect_to @admin_home, notice: 'Home was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_home }
-      else
-        format.html { render :new }
-        format.json { render json: @admin_home.errors, status: :unprocessable_entity }
-      end
-    end
+    # f1 = file.read if file != nil
+    # f1.split("\r\n").each{|line|
+    #   if line.split(",").size == 4
+    #     Subscriber.add_name
+    #   end
+    # }
+    # name.split("\r\n").each{|line|
+    #   if line.split(",").size == 4
+    #     Subscriber.add_name
+    #   end
+    # }
+
+   redirect_to "/admin/home"
   end
 
   # PATCH/PUT /admin/products/1
