@@ -60,7 +60,12 @@ Rails.application.routes.draw do
      namespace :admin do
        # Directs /admin/products/* to Admin::ProductsController
        # (app/controllers/admin/products_controller.rb)
-       resources :home
+       resources :home do
+         collection do
+           get 'single_person'
+           post "single_person"
+         end
+       end
      end
   namespace :provider do
   resources :products do
@@ -82,8 +87,12 @@ Rails.application.routes.draw do
       end
     end
     resources :rooms
+
   end
 
+
+
+  resources :home
 
 
 end

@@ -1,12 +1,39 @@
 class Admin::HomeController < ApplicationController
   layout "back/admin"
   before_action :set_admin_home, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
 
   # GET /admin/products
   # GET /admin/products.json
   def index
 
   end
+
+  def single_person
+    if request.post?
+      puts "11111111222222222222222222222222222"
+      redirect_to "/home"
+    end
+   puts "11111111111111111111111111111111111"
+
+  end
+
+
+  def add_geo
+    mdn = params[:mdn]
+    lat = params[:lat]
+    lng = params[:lng]
+    elec = params[:elec]
+    time = Time.now
+    sub = Subscriber.where(:mdn=>mdn)[0]
+    postion = sub.postions.new
+    postion.geo = {lat:lat,lng:lng}
+    postion.elec = elec
+    postion.time = time
+    postion.save
+    render :text=>"ok"
+  end
+
 
   # GET /admin/products/1
   # GET /admin/products/1.json
@@ -25,17 +52,17 @@ class Admin::HomeController < ApplicationController
   # POST /admin/products
   # POST /admin/products.json
   def create
-    @admin_home = Admin::Home.new(admin_home_params)
-
-    respond_to do |format|
-      if @admin_home.save
-        format.html { redirect_to @admin_home, notice: 'Home was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_home }
-      else
-        format.html { render :new }
-        format.json { render json: @admin_home.errors, status: :unprocessable_entity }
-      end
-    end
+    # @admin_home = Admin::Home.new(admin_home_params)
+    #
+    # respond_to do |format|
+    #   if @admin_home.save
+    #     format.html { redirect_to @admin_home, notice: 'Home was successfully created.' }
+    #     format.json { render :show, status: :created, location: @admin_home }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @admin_home.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /admin/products/1

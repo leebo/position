@@ -3,7 +3,7 @@ class MyTest::RoomsController < ApplicationController
   # GET /my_test/rooms.json
   # layout 'application'
   # include_kindeditor
-
+  skip_before_filter :verify_authenticity_token
   def index
     @my_test_rooms = MyTest::Room.all
 

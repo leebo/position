@@ -2,6 +2,7 @@ class Postion
   include Mongoid::Document
   include Mongoid::Timestamps
   field :geo,type: Hash #{lat:lat,lng:lng}
+  field :elec
   field :time,type:DateTime
   belongs_to :subscriber
 

@@ -1,0 +1,20 @@
+<script type="text/javascript">
+  function find_tele(){
+      var name = $("#find_tele").val();
+      $.post("/admin/home",name,function(data){
+         $("#find_name").html(data)
+      });
+  }
+</script>
+
+<div class="col-sm-10">
+  <div class="input-group">
+    <input type="text" name="find_tele" class="form-control" id="find_tele">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" onclick="find_tele()">Go!</button>
+              </span>
+  </div>
+  <div id="find_name">
+
+  </div>
+</div>

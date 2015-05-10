@@ -6,8 +6,9 @@ class HomeController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @homes = Home.all
+    # @homes = Home.all
   end
+
 
   # def get_json
   #   name = params[:name]
