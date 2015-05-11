@@ -1,0 +1,14 @@
+<%= form_for(@buser, :html => {:multipart => true}) do |f| %>
+    2.
+    3.  <div class="field">
+  4.    <%= f.label :name %><br />
+  5.    <%= f.text_field :name %>
+  6.  </div>
+    7.  <div class="field">
+  8.    <%= f.label :FIle %><br />
+  9.    <%= f.file_field :avatar %>
+  10.  </div>
+    11.  <div class="actions">
+  12.    <%= f.submit %>
+  13.  </div>
+    14.<% end %>

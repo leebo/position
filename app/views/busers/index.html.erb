@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Busers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @busers.each do |buser| %>
+      <tr>
+        <td><%= buser.name %></td>
+        <td><%= link_to 'Show', buser %></td>
+        <td><%= link_to 'Edit', edit_buser_path(buser) %></td>
+        <td><%= link_to 'Destroy', buser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Buser', new_buser_path %>

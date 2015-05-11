@@ -8,7 +8,7 @@ class HomesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:home)
+    assert_not_nil assigns(:products)
   end
 
   test "should get new" do
@@ -16,15 +16,15 @@ class HomesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create home" do
+  test "should create products" do
     assert_difference('Home.count') do
       post :create, home: {  }
     end
 
-    assert_redirected_to home_path(assigns(:home))
+    assert_redirected_to home_path(assigns(:products))
   end
 
-  test "should show home" do
+  test "should show products" do
     get :show, id: @home
     assert_response :success
   end
@@ -34,12 +34,12 @@ class HomesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update home" do
+  test "should update products" do
     patch :update, id: @home, home: {  }
-    assert_redirected_to home_path(assigns(:home))
+    assert_redirected_to home_path(assigns(:products))
   end
 
-  test "should destroy home" do
+  test "should destroy products" do
     assert_difference('Home.count', -1) do
       delete :destroy, id: @home
     end

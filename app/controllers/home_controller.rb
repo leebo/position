@@ -3,20 +3,21 @@ class HomeController < ApplicationController
   #skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
-  # GET /home
-  # GET /home.json
+  # GET /products
+  # GET /products.json
   def index
-    @homes = Home.all
+    # @homes = Home.all
   end
 
-  def get_json
-    name = params[:name]
-    mdn = params[:mdn]
-    emsi = params[:emsi]
-    subscriber = Subscriber.new
-    subscriber.add_name(name,mdn,emsi)
-    render :text=>"ok"
-  end
+
+  # def get_json
+  #   name = params[:name]
+  #   mdn = params[:mdn]
+  #   emsi = params[:emsi]
+  #   subscriber = Subscriber.new
+  #   subscriber.add_name(name,mdn,emsi)
+  #   render :text=>"ok"
+  # end
 
   def add_geo
     mdn = params[:mdn]
@@ -26,27 +27,28 @@ class HomeController < ApplicationController
     sub = Subscriber.where(:mdn=>mdn)[0]
     postion = sub.postions.new
     postion.geo = {lat:lat,lng:lng}
+    postion.elec = elec
     postion.time = time
     postion.save
     render :text=>"ok"
   end
 
-  # GET /home/1
-  # GET /home/1.json
+  # GET /products/1
+  # GET /products/1.json
   def show
   end
 
-  # GET /home/new
+  # GET /products/new
   def new
     @home = Home.new
   end
 
-  # GET /home/1/edit
+  # GET /products/1/edit
   def edit
   end
 
-  # POST /home
-  # POST /home.json
+  # POST /products
+  # POST /products.json
   def create
     @home = Home.new(home_params)
 
@@ -61,8 +63,8 @@ class HomeController < ApplicationController
     end
   end
 
-  # PATCH/PUT /home/1
-  # PATCH/PUT /home/1.json
+  # PATCH/PUT /products/1
+  # PATCH/PUT /products/1.json
   def update
     respond_to do |format|
       if @home.update(home_params)
@@ -75,8 +77,8 @@ class HomeController < ApplicationController
     end
   end
 
-  # DELETE /home/1
-  # DELETE /home/1.json
+  # DELETE /products/1
+  # DELETE /products/1.json
   def destroy
     @home.destroy
     respond_to do |format|
@@ -93,6 +95,6 @@ class HomeController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def home_params
-      params[:home]
+      params[:products]
     end
 end

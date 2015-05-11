@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @buser.name %>
+  <%=image_tag @buser.avatar_url%>
+</p>
+
+<%= link_to 'Edit', edit_buser_path(@buser) %> |
+<%= link_to 'Back', busers_path %>
