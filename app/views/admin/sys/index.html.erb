@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Subscribers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mdn</th>
+      <th>Emsi</th>
+      <th>Imei</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_subscribers.each do |admin_subscriber| %>
+      <tr>
+        <td><%= admin_subscriber.name %></td>
+        <td><%= admin_subscriber.mdn %></td>
+        <td><%= admin_subscriber.emsi %></td>
+        <td><%= admin_subscriber.imei %></td>
+        <td><%= link_to 'Show', admin_subscriber %></td>
+        <td><%= link_to 'Edit', edit_admin_subscriber_path(admin_subscriber) %></td>
+        <td><%= link_to 'Destroy', admin_subscriber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subscriber', new_admin_subscriber_path %>
