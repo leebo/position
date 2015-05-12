@@ -5,7 +5,7 @@ class Provider::ProductsController < ApplicationController
   # GET /admin/products
   # GET /admin/products.json
   def index
-
+     @subscribers = Subscriber.all
   end
 
   # GET /admin/products/1

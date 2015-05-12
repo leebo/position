@@ -1,1 +1,22 @@
-地对地导弹
+<table>
+  <tr>
+    <th>name</th>
+    <th>mdn</th>
+    <th>emsi</th>
+    <th>imei</th>
+
+  </tr>
+
+  <% @subscribers.each do |subscriber| %>
+      <tr>
+         <td><%= subscriber.name%></td>
+        <td><%= subscriber.mdn%></td>
+        <td><%= subscriber.emsi%></td>
+        <td><%= subscriber.imei%></td>
+      </tr>
+  <% end %>
+</table>
+
+<br/>
+
+
