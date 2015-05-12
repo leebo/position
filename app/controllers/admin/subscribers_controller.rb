@@ -6,7 +6,9 @@ class Admin::SubscribersController < ApplicationController
   def index
     @admin_subscribers = Admin::Subscriber.all
   end
-
+  def index_map
+    @admin_subscribers = Admin::Subscriber.all
+  end
   # GET /admin/subscribers/1
   # GET /admin/subscribers/1.json
   def show
@@ -16,6 +18,10 @@ class Admin::SubscribersController < ApplicationController
   def new
     @admin_subscriber = Admin::Subscriber.new
   end
+#批量导入
+  def bulk_new
+
+  end
 
   # GET /admin/subscribers/1/edit
   def edit
@@ -24,6 +30,20 @@ class Admin::SubscribersController < ApplicationController
   # POST /admin/subscribers
   # POST /admin/subscribers.json
   def create
+    @admin_subscriber = Admin::Subscriber.new(admin_subscriber_params)
+
+    respond_to do |format|
+      if @admin_subscriber.save
+        format.html { redirect_to @admin_subscriber, notice: 'Subscriber was successfully created.' }
+        format.json { render :show, status: :created, location: @admin_subscriber }
+      else
+        format.html { render :new }
+        format.json { render json: @admin_subscriber.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  #批量导入
+  def bulk_create
     @admin_subscriber = Admin::Subscriber.new(admin_subscriber_params)
 
     respond_to do |format|
