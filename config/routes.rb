@@ -57,20 +57,39 @@ Rails.application.routes.draw do
   #   end
 
 
-     namespace :admin do
-       # Directs /admin/products/* to Admin::ProductsController
-       # (app/controllers/admin/products_controller.rb)
-       resources :home do
-         collection do
-           get 'single_person'
-           post "single_person"
-         end
-       end
-     end
-  namespace :provider do
-  resources :products do
-    post 'get_json',on: :collection
+  namespace :admin do
+    # Directs /admin/products/* to Admin::ProductsController
+    # (app/controllers/admin/products_controller.rb)
+    resources :home do
+      collection do
+        get 'single_person'
+        post "single_person"
+      end
+    end
+    resources :subscribers do
+      collection do
+        get 'index_map'
+        get 'bulk_new'
+        post "bulk_create"
+      end
+    end
+    resources :sys do
+      collection do
+        get 'single_person'
+        post "single_person"
+      end
+    end
+    resources :home do
+      collection do
+        get 'single_person'
+        post "single_person"
+      end
+    end
   end
+  namespace :provider do
+    resources :products do
+      post 'get_json', on: :collection
+    end
   end
 
 
@@ -89,7 +108,6 @@ Rails.application.routes.draw do
     resources :rooms
 
   end
-
 
 
   resources :home
