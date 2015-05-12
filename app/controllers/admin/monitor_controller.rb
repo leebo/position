@@ -9,7 +9,7 @@ class Admin::MonitorController < ApplicationController
 
   end
   #显示当前时间点的告警
-  def alarms
+  def events
 
   end
 
