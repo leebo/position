@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Customers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Mdn</th>
+      <th>Emsi</th>
+      <th>Imei</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_customers.each do |admin_customer| %>
+      <tr>
+        <td><%= admin_customer.name %></td>
+        <td><%= admin_customer.mdn %></td>
+        <td><%= admin_customer.emsi %></td>
+        <td><%= admin_customer.imei %></td>
+        <td><%= link_to 'Show', admin_customer %></td>
+        <td><%= link_to 'Edit', edit_admin_customer_path(admin_customer) %></td>
+        <td><%= link_to 'Destroy', admin_customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer', new_admin_customer_path %>
