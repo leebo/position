@@ -7,12 +7,12 @@ class Admin::CustomersController < ApplicationController
 
 
   def index
-    @customers = Admin::Customer.all
+    @customers = Customer.all
   end
 
   #地图方式列出人员的位置
   def index_map
-    @customers = Admin::Customer.all
+    @customers = Customer.all
   end
 
   # GET /admin/customers/1
@@ -23,12 +23,12 @@ class Admin::CustomersController < ApplicationController
   # GET /admin/customers/new
   #新增单个用户
   def new
-    @customer = Admin::Customer.new
+    @customer = Customer.new
   end
 
   #批量导入用户
   def new_bulk
-    #@customers = Admin::Customer.new
+    #@customers = Customer.new
   end
 
   # 单个用户修改
@@ -39,11 +39,11 @@ class Admin::CustomersController < ApplicationController
   # POST /admin/customers.json
   #单个用户创建
   def create
-    @customer = Admin::Customer.new(customer_params)
+    @customer = Customer.new(customer_params)
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Subscriber was successfully created.' }
+        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
@@ -61,14 +61,14 @@ class Admin::CustomersController < ApplicationController
     # f1.split("\r\n").each{|line|
     #   if line.split(",").size == 4
     #     arr = line.split(",")
-    #     customer = Subscriber.new
+    #     customer = Customer.new
     #     customer.add_name(arr[0],arr[1],arr[2],arr[3])
     #   end
     # }
     # name.split("\r\n").each{|line|
     #   if line.split(",").size == 4
     #     arr = line.split(",")
-    #     customer = Subscriber.new
+    #     customer = Customer.new
     #     customer.add_name(arr[0],arr[1],arr[2],arr[3])
     #   end
     # }
@@ -82,7 +82,7 @@ class Admin::CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to @customer, notice: 'Subscriber was successfully updated.' }
+        format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit }
@@ -97,7 +97,7 @@ class Admin::CustomersController < ApplicationController
   def destroy
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Subscriber was successfully destroyed.' }
+      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -105,7 +105,7 @@ class Admin::CustomersController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_customer
-    @customer = Admin::Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
