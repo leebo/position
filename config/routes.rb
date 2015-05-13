@@ -66,7 +66,7 @@ Rails.application.routes.draw do
         post "single_person"
       end
     end
-    resources :subscribers do
+    resources :customers do
       collection do
         get 'index_map'
         get 'new_bulk'
