@@ -75,22 +75,21 @@ Rails.application.routes.draw do
     end
     resources :sys do
       collection do
-        get 'single_person'
-        post "single_person"
+        get 'config_location'
+        post "complete_config_location"
+        get 'config_distance'
+        post "complete_config_distance"
       end
     end
-    resources :home do
+    resources :monitor do
       collection do
-        get 'single_person'
-        post "single_person"
+        get 'subscribers'
+        get "events"
       end
     end
+
   end
-  namespace :provider do
-    resources :products do
-      post 'get_json', on: :collection
-    end
-  end
+
 
 
   get "/upload/grid/*path" => "gridfs#serve"
