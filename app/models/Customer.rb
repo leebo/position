@@ -1,4 +1,5 @@
-class Subscriber
+#require 'csv'
+class Customer
   include Mongoid::Document
   field :name,type: String
   field :mdn,type: String
@@ -8,8 +9,10 @@ class Subscriber
   has_many :postions
 
   class << self
-    def bulk_create
-
+    def import file
+      CSV.foreach(file.path,headers:true) do |row|
+        create! row.to_hash
+      end
     end
   end
 

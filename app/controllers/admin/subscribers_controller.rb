@@ -4,13 +4,17 @@ class Admin::SubscribersController < ApplicationController
 
   # GET /admin/subscribers
   # GET /admin/subscribers.json
+
+
   def index
     @subscribers = Admin::Subscriber.all
   end
+
   #地图方式列出人员的位置
   def index_map
     @subscribers = Admin::Subscriber.all
   end
+
   # GET /admin/subscribers/1
   # GET /admin/subscribers/1.json
   def show
@@ -21,9 +25,10 @@ class Admin::SubscribersController < ApplicationController
   def new
     @subscriber = Admin::Subscriber.new
   end
-#批量导入用户
-  def new_bulk
 
+  #批量导入用户
+  def new_bulk
+    #@subscribers = Admin::Subscriber.new
   end
 
   # 单个用户修改
@@ -46,26 +51,27 @@ class Admin::SubscribersController < ApplicationController
       end
     end
   end
+
   #批量导入用户，与bulk_new配对使用
   def create_bulk
-    name = params[:name]
-    file = params[:file]
 
-    f1 = file.read if file != nil
-    f1.split("\r\n").each{|line|
-      if line.split(",").size == 4
-        arr = line.split(",")
-        subscriber = Subscriber.new
-        subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
-      end
-    }
-    name.split("\r\n").each{|line|
-      if line.split(",").size == 4
-        arr = line.split(",")
-        subscriber = Subscriber.new
-        subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
-      end
-    }
+    Subscriber.import params[:file]
+
+    # f1 = file.read if file != nil
+    # f1.split("\r\n").each{|line|
+    #   if line.split(",").size == 4
+    #     arr = line.split(",")
+    #     subscriber = Subscriber.new
+    #     subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
+    #   end
+    # }
+    # name.split("\r\n").each{|line|
+    #   if line.split(",").size == 4
+    #     arr = line.split(",")
+    #     subscriber = Subscriber.new
+    #     subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
+    #   end
+    # }
 
     redirect_to "/admin/home"
   end
@@ -97,13 +103,13 @@ class Admin::SubscribersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_subscriber
-      @subscriber = Admin::Subscriber.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_subscriber
+    @subscriber = Admin::Subscriber.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def subscriber_params
-      params.require(:subscriber).permit(:name, :mdn, :emsi, :imei)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def subscriber_params
+    params.require(:subscriber).permit(:name, :mdn, :emsi, :imei)
+  end
 end

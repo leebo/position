@@ -1,7 +1,25 @@
-<%= form_tag "/provider/products", :multipart=>true do %>
-上传格式（xx,xx,xx,xx)<br/>
-    <%= text_area_tag(:name) %>
-<%= file_field_tag(:img ,:size=>"40") %>
-<%= submit_tag("上传") %>
+<div class="panel panel-default">
+  <div class="panel-heading font-bold">批量导入用户数据</div>
+  <div class="panel-body">
 
-<% end %>
+    <%= form_tag create_bulk_admin_subscribers_path, multipart: true do %>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">文件</label>
+
+          <div class="col-lg-10">
+            <input type="file" name="file" class="form-control" placeholder="文件">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-10">
+            <button type="submit" class="btn btn-sm btn-info">确定</button>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+
+

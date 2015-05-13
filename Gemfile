@@ -49,5 +49,7 @@ gem 'carrierwave'
 gem 'carrierwave-mongoid'
 gem 'mini_magick'
 gem 'mongoid-grid_fs'
-# gem 'r2corba'
-gem 'kmeans-clustering', '~> 1.0.0'
+#聚集度
+gem 'kmeans-clusterer'
+#csv处理
+gem 'fastercsv'
