@@ -1,0 +1,7 @@
+<%= form_tag "/provider/products", :multipart=>true do %>
+上传格式（xx,xx,xx,xx)<br/>
+    <%= text_area_tag(:name) %>
+<%= file_field_tag(:img ,:size=>"40") %>
+<%= submit_tag("上传") %>
+
+<% end %>

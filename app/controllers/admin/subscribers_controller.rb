@@ -1,4 +1,5 @@
 class Admin::SubscribersController < ApplicationController
+  layout "back/admin"
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/subscribers
@@ -21,7 +22,7 @@ class Admin::SubscribersController < ApplicationController
     @subscriber = Admin::Subscriber.new
   end
 #批量导入用户
-  def bulk_new
+  def new_bulk
 
   end
 
@@ -46,18 +47,27 @@ class Admin::SubscribersController < ApplicationController
     end
   end
   #批量导入用户，与bulk_new配对使用
-  def bulk_create
-    @subscriber = Admin::Subscriber.new(subscriber_params)
+  def create_bulk
+    name = params[:name]
+    file = params[:file]
 
-    respond_to do |format|
-      if @subscriber.save
-        format.html { redirect_to @subscriber, notice: 'Subscriber was successfully created.' }
-        format.json { render :show, status: :created, location: @subscriber }
-      else
-        format.html { render :new }
-        format.json { render json: @subscriber.errors, status: :unprocessable_entity }
+    f1 = file.read if file != nil
+    f1.split("\r\n").each{|line|
+      if line.split(",").size == 4
+        arr = line.split(",")
+        subscriber = Subscriber.new
+        subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
       end
-    end
+    }
+    name.split("\r\n").each{|line|
+      if line.split(",").size == 4
+        arr = line.split(",")
+        subscriber = Subscriber.new
+        subscriber.add_name(arr[0],arr[1],arr[2],arr[3])
+      end
+    }
+
+    redirect_to "/admin/home"
   end
 
   # PATCH/PUT /admin/subscribers/1

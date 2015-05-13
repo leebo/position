@@ -7,6 +7,12 @@ class Subscriber
 
   has_many :postions
 
+  class << self
+    def bulk_create
+
+    end
+  end
+
   def add_name(name,mdn,emsi,imei)
     subscriber = Subscriber.new
     subscriber.name = name
@@ -15,4 +21,6 @@ class Subscriber
     subscriber.imei = imei
     subscriber.save
   end
+
+
 end

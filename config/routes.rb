@@ -69,8 +69,8 @@ Rails.application.routes.draw do
     resources :subscribers do
       collection do
         get 'index_map'
-        get 'bulk_new'
-        post "bulk_create"
+        get 'new_bulk'
+        post "create_bulk"
       end
     end
     resources :sys do
