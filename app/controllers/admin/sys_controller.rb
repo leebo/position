@@ -6,11 +6,16 @@ class Admin::SysController < ApplicationController
   #配置关键位置：点+半径
   def config_location
   end
+  def complete_config_location
+  end
+
   #配置报警距离
   def config_distance
 
   end
+  def complete_config_distance
 
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_subscriber
