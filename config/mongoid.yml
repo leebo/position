@@ -103,7 +103,7 @@
 development:
   sessions:
     default:
-      database: position_development
+      database: position_dev
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
