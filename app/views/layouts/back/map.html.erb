@@ -31,6 +31,7 @@
 
 </head>
 <body>
+<%#= yield%>
 <div class="app app-header-fixed app-aside-fixed container">
 
   <!-- header -->
@@ -304,14 +305,14 @@
   <!-- content -->
   <div id="content" class="app-content" role="main">
     <div class="app-content-body ">
-      <%= yield%>
 
       <div class="bg-light lter b-b wrapper-md">
         <h1 class="m-n font-thin h3">Form Elements</h1>
       </div>
       <div class="wrapper-md" ng-controller="FormDemoCtrl">
         <p id="notice"><%= notice %></p>
-      <%= yield%>
+        <%= yield%>
+
       </div>
 
 

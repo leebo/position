@@ -1,5 +1,6 @@
 class Admin::CustomersController < ApplicationController
   layout "back/admin"
+  #layout "application"
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/customers
@@ -12,7 +13,8 @@ class Admin::CustomersController < ApplicationController
 
   #地图方式列出人员的位置
   def index_map
-    @customers = Customer.all
+    render layout: "back/map"
+    #@positions = Position.all
   end
 
   # GET /admin/customers/1
