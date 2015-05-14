@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <title>Html version | Angulr</title>
-  <meta name="description" content="Angularjs, Html5, Music, Landing, 4 in 1 ui kits package" />
-  <meta name="keywords" content="AngularJS, angular, bootstrap, admin, dashboard, panel, app, charts, components,flat, responsive, layout, kit, ui, route, web, app, widgets" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="description" content="Angularjs, Html5, Music, Landing, 4 in 1 ui kits package"/>
+  <meta name="keywords" content="AngularJS, angular, bootstrap, admin, dashboard, panel, app, charts, components,flat, responsive, layout, kit, ui, route, web, app, widgets"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-  <link rel="stylesheet" href="/angulr-html/css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="/angulr-html/css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="/angulr-html/css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="/angulr-html/css/simple-line-icons.css" type="text/css" />
-  <link rel="stylesheet" href="/angulr-html/css/font.css" type="text/css" />
-  <link rel="stylesheet" href="/angulr-html/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="/angulr-html/css/bootstrap.css" type="text/css"/>
+  <link rel="stylesheet" href="/angulr-html/css/animate.css" type="text/css"/>
+  <link rel="stylesheet" href="/angulr-html/css/font-awesome.min.css" type="text/css"/>
+  <link rel="stylesheet" href="/angulr-html/css/simple-line-icons.css" type="text/css"/>
+  <link rel="stylesheet" href="/angulr-html/css/font.css" type="text/css"/>
+  <link rel="stylesheet" href="/angulr-html/css/app.css" type="text/css"/>
 
   <%#= javascript_include_tag "back/application" %>
   <%= csrf_meta_tags %>
@@ -26,7 +26,6 @@
   <script src="/angulr-html/js/ui-nav.js"></script>
   <script src="/angulr-html/js/ui-toggle.js"></script>
   <%= yield :head %>
-
 
 
 </head>
@@ -47,7 +46,7 @@
       <a href="#/" class="navbar-brand text-lt">
         <i class="fa fa-btc"></i>
         <img src="/angulr-html/img/logo.png" alt="." class="hide">
-        <span class="hidden-folded m-l-xs">Angulr</span>
+        <span class="hidden-folded m-l-xs">沃西定位平台</span>
       </a>
       <!-- / brand -->
     </div>
@@ -74,10 +73,12 @@
             <span>Mega</span>
             <span class="caret"></span>
           </a>
+
           <div class="dropdown-menu wrapper w-full bg-white">
             <div class="row">
               <div class="col-sm-4">
-                <div class="m-l-xs m-t-xs m-b-xs font-bold">Pages <span class="badge badge-sm bg-success">10</span></div>
+                <div class="m-l-xs m-t-xs m-b-xs font-bold">Pages <span class="badge badge-sm bg-success">10</span>
+                </div>
                 <div class="row">
                   <div class="col-xs-6">
                     <ul class="list-unstyled l-h-2x">
@@ -114,7 +115,8 @@
                 </div>
               </div>
               <div class="col-sm-4 b-l b-light">
-                <div class="m-l-xs m-t-xs m-b-xs font-bold">UI Kits <span class="label label-sm bg-primary">12</span></div>
+                <div class="m-l-xs m-t-xs m-b-xs font-bold">UI Kits <span class="label label-sm bg-primary">12</span>
+                </div>
                 <div class="row">
                   <div class="col-xs-6">
                     <ul class="list-unstyled l-h-2x">
@@ -122,7 +124,8 @@
                         <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Buttons</a>
                       </li>
                       <li>
-                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Icons <span class="badge badge-sm bg-warning">1000+</span></a>
+                        <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Icons
+                          <span class="badge badge-sm bg-warning">1000+</span></a>
                       </li>
                       <li>
                         <a href><i class="fa fa-fw fa-angle-right text-muted m-r-xs"></i>Grid</a>
@@ -304,14 +307,13 @@
   <!-- content -->
   <div id="content" class="app-content" role="main">
     <div class="app-content-body ">
-      <%= yield%>
 
       <div class="bg-light lter b-b wrapper-md">
         <h1 class="m-n font-thin h3">Form Elements</h1>
       </div>
       <div class="wrapper-md" ng-controller="FormDemoCtrl">
         <p id="notice"><%= notice %></p>
-      <%= yield%>
+        <%= yield %>
       </div>
 
 
@@ -324,7 +326,6 @@
   <!-- / footer -->
 
 </div>
-
 
 
 </body>

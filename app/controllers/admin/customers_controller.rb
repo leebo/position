@@ -13,7 +13,7 @@ class Admin::CustomersController < Admin::BaseController
 
   #地图方式列出人员的位置
   def index_map
-    render layout: "back/map"
+    #render layout: "back/map"
     #@positions = Position.all
   end
 

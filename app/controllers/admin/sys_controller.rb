@@ -5,6 +5,7 @@ class Admin::SysController < Admin::BaseController
   # GET /admin/subscribers.json
   #配置关键位置：点+半径
   def config_location
+
   end
   def complete_config_location
   end
@@ -16,6 +17,13 @@ class Admin::SysController < Admin::BaseController
   def complete_config_distance
 
   end
+  def config_measure
+
+  end
+  def complete_config_measure
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_subscriber

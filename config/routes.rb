@@ -79,11 +79,13 @@ Rails.application.routes.draw do
         post "complete_config_location"
         get 'config_distance'
         post "complete_config_distance"
+        get 'config_measure'
+        post "complete_config_measure"
       end
     end
     resources :monitor do
       collection do
-        get 'subscribers'
+        get 'customers'
         get "events"
       end
     end

@@ -6,11 +6,11 @@ class Admin::MonitorController < Admin::BaseController
 
   #动态显示当前时间点的subscriber的位置图
   def customers
-
+    #render layout: "back/map"
   end
   #显示当前时间点的告警
   def events
-
+    #render layout: "back/map"
   end
 
 

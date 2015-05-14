@@ -1,29 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Admin Customers</h1>
-
-<table>
-  <thead>
+<div class="table-responsive">
+  <table class="table table-striped b-t b-light">
+    <thead>
     <tr>
-      <th>Name</th>
-      <th>Mdn</th>
-      <th>Emsi</th>
-      <th>Imei</th>
+      <th>姓  名</th>
+      <th>电话号码</th>
+      <th>物理号码</th>
+      <th>设备代码</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
+    <tbody>
 
-  <tbody>
     <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.name %></td>
-        <td><%= customer.mdn %></td>
-        <td><%= customer.emsi %></td>
-        <td><%= customer.imei %></td>
-      </tr>
+        <tr>
+          <td><%= customer.name %></td>
+          <td><%= customer.mdn %></td>
+          <td><%= customer.emsi %></td>
+          <td><%= customer.imei %></td>
+          <td>显示|删除|编辑</td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
+    </tbody>
+  </table>
+</div>
+<footer class="panel-footer">
+  <div class="row">
+    <div class="col-sm-4 text-center">
+      <small class="text-muted inline m-t-sm m-b-sm">翻页查询更多</small>
+    </div>
+    <div class="col-sm-8 text-right text-center-xs">
+      <ul class="pagination pagination-sm m-t-none m-b-none">
+        <li><a href><i class="fa fa-chevron-left"></i></a></li>
+        <li><a href>1</a></li>
+        <li><a href>2</a></li>
+        <li><a href>3</a></li>
+        <li><a href>4</a></li>
+        <li><a href>5</a></li>
+        <li><a href><i class="fa fa-chevron-right"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
