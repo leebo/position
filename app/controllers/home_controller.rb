@@ -20,9 +20,9 @@ class HomeController < ApplicationController
   # end
 
   def add_geo
-    mdn = params[:mdn]
-    lat = params[:lat]
-    lng = params[:lng]
+    mdn = params[:params][:mdn]
+    lat = params[:params][:lat]
+    lng = params[:params][:lng]
     time = Time.now
     sub = Customer.where(:mdn=>mdn)[0]
     position = Position.new
