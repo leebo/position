@@ -1,4 +1,4 @@
-class Admin::CustomersController < ApplicationController
+class Admin::CustomersController < Admin::BaseController
   layout "back/admin"
   #layout "application"
   before_action :set_customer, only: [:show, :edit, :update, :destroy]

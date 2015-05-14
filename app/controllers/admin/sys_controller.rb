@@ -1,4 +1,4 @@
-class Admin::SysController < ApplicationController
+class Admin::SysController < Admin::BaseController
   before_action :set_admin_subscriber, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/subscribers

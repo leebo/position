@@ -1,11 +1,11 @@
-class Admin::MonitorController < ApplicationController
+class Admin::MonitorController < Admin::BaseController
   before_action :set_admin_subscriber, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/subscribers
   # GET /admin/subscribers.json
 
   #动态显示当前时间点的subscriber的位置图
-  def subscribers
+  def customers
 
   end
   #显示当前时间点的告警
