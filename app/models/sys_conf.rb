@@ -1,4 +1,4 @@
-class Setting
+class SysConf
   include Mongoid::Document
 
   field :name,type: String

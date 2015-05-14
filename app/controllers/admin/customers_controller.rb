@@ -45,7 +45,7 @@ class Admin::CustomersController < Admin::BaseController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to admin_customers_url, notice: '创建成功' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
