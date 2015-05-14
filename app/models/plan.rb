@@ -1,5 +1,5 @@
 class Plan
   include Mongoid::Document
   field :desc,type: String
-  belongs_to :event_type
+  belongs_to :incident_type
 end
