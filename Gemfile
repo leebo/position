@@ -51,5 +51,3 @@ gem 'mini_magick'
 gem 'mongoid-grid_fs'
 #聚集度
 gem 'kmeans-clusterer'
-#csv处理
-gem 'fastercsv'
