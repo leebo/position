@@ -24,12 +24,12 @@ class HomeController < ApplicationController
     lat = params[:lat]
     lng = params[:lng]
     time = Time.now
-    sub = Subscriber.where(:mdn=>mdn)[0]
-    postion = sub.postions.new
-    postion.geo = {lat:lat,lng:lng}
-    postion.elec = elec
-    postion.time = time
-    postion.save
+    sub = Customer.where(:mdn=>mdn)[0]
+    position = Position.new
+    position.geo = {lat:lat,lng:lng}
+    #postion.elec = elec
+    position.time = time
+    position.save
     render :text=>"ok"
   end
 

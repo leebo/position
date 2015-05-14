@@ -111,7 +111,9 @@ Rails.application.routes.draw do
   end
 
 
-  resources :home
+  resources :home do
+    collection {post 'add_geo'}
+  end
 
 
 end
