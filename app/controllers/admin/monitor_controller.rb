@@ -4,7 +4,7 @@ class Admin::MonitorController < Admin::BaseController
   # GET /admin/subscribers
   # GET /admin/subscribers.json
 
-  #动态显示当前时间点的subscriber的位置图
+  #动态显示当前时间点的customers的位置图
   def customers
     #render layout: "back/map"
   end
