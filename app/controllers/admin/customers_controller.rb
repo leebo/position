@@ -1,6 +1,4 @@
 class Admin::CustomersController < Admin::BaseController
-  layout "back/admin"
-  #layout "application"
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/customers
@@ -58,22 +56,6 @@ class Admin::CustomersController < Admin::BaseController
   def create_bulk
 
     Customer.import params[:file]
-
-    # f1 = file.read if file != nil
-    # f1.split("\r\n").each{|line|
-    #   if line.split(",").size == 4
-    #     arr = line.split(",")
-    #     customer = Customer.new
-    #     customer.add_name(arr[0],arr[1],arr[2],arr[3])
-    #   end
-    # }
-    # name.split("\r\n").each{|line|
-    #   if line.split(",").size == 4
-    #     arr = line.split(",")
-    #     customer = Customer.new
-    #     customer.add_name(arr[0],arr[1],arr[2],arr[3])
-    #   end
-    # }
 
     redirect_to "/admin/home"
   end
