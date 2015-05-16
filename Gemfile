@@ -52,3 +52,5 @@ gem 'mongoid-grid_fs'
 #聚集度
 gem 'kmeans-clusterer'
 gem 'rest-client'
+
+gem "rufus-scheduler"
