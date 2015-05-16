@@ -110,8 +110,8 @@ development:
         - 112.124.57.143:27017
       username: lee
       password: lee123456
-#      hosts:
-#        - localhost:27017
+      #hosts:
+      #  - localhost:27017
   options:
     raise_not_found_error: false
 
@@ -132,8 +132,10 @@ production:
     default:
       database: position_dev
       hosts:
-        - 112.124.57.143:27017
-      username: lee
-      password: lee123456
+        - localhost:27017
+#      hosts:
+#        - 112.124.57.143:27017
+#      username: lee
+#      password: lee123456
   options:
     raise_not_found_error: false
