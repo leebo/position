@@ -20,17 +20,19 @@ class Admin::HomeController < ApplicationController
 
 
   def add_geo
-    mdn = params[:mdn]
-    lat = params[:lat]
-    lng = params[:lng]
-    elec = params[:elec]
+     puts params
+     mdn = params[:params][:mdn]
+     lat = params[:params][:lat]
+     lng = params[:params][:lng]
+    elec = params[:params][:elec]
     time = Time.now
-    sub = Subscriber.where(:mdn=>mdn)[0]
-    postion = sub.postions.new
-    postion.geo = {lat:lat,lng:lng}
-    postion.elec = elec
-    postion.time = time
-    postion.save
+    customer = Customer.where(:mdn=>mdn)[0]
+    position = customer.positions.new
+    position.geo = {lat:lat,lng:lng}
+    position.elec = elec
+    position.time = time
+    position.save
+    puts position
     render :text=>"ok"
   end
 

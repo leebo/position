@@ -10,7 +10,11 @@ class Admin::MonitorController < Admin::BaseController
   end
   #显示当前时间点的告警
   def events
-    #render layout: "back/map"
+     @customers = Customer.all
+     @positions = []
+    @customers.each{|customer|
+        @positions << customer.positions.last if  customer.positions.last != nil
+    }
   end
 
 

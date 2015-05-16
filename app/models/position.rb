@@ -9,12 +9,12 @@ class Position
 
   def sum_data(time)
     arr = []
-    Subscriber.all.each{|sub|
-      sub_postions = sub.postions.where("time"=>{"$lt"=>"#{time}"})
+    Customer.all.each{|cus|
+      sub_postions = cus.postions.where("time"=>{"$lt"=>"#{time}"})
       sub_postions.each{|postion|
         arr << postion.geo
       }
-      past_postion = sub.past_postions.new
+      past_postion = cus.past_postions.new
       past_postion.day = time
       past_postion.geos = arr
       past_postion.save

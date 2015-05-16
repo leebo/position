@@ -64,6 +64,7 @@ Rails.application.routes.draw do
       collection do
         get 'single_person'
         post "single_person"
+        post "add_geo"
       end
     end
     resources :customers do
