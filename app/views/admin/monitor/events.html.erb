@@ -8,14 +8,23 @@
         document.getElementById('mapall').style.height = h - 80 + "px";
     }
     checkSize();
+    // 定时刷新页面的用户位置信息
+//    setInterval(user_position(),6000)
+//    function user_position(){
+//
+//    }
     var map = new BMap.Map("mapall", {});                        // 创建Map实例
     map.centerAndZoom(new BMap.Point(89.626, 42.858), 13);     // 初始化地图,设置中心点坐标和地图级别
     map.enableScrollWheelZoom();                        //启用滚轮放大缩小
     if (document.createElement('canvas').getContext) {  // 判断当前浏览器是否支持绘制海量点
         var points = [];  // 添加海量点数据
-        for (var i = 0; i < data.data.length; i++) {
-            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
-        }
+//        for (var i = 0; i < data.data.length; i++) {
+//            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
+//        }
+        <% @positions.each do |position|%>
+        points.push(new BMap.Point(<%=position.geo[:lat]%>,<%=position.geo[:lng]%>))
+        <% end %>
+
         var options = {
             size: BMAP_POINT_SIZE_SMALL,
             shape: BMAP_POINT_SHAPE_STAR,

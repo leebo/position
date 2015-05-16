@@ -15,7 +15,6 @@ class Admin::CustomersController < Admin::BaseController
     @customers.each{|customer|
 
     }
-    puts Position.all.size
     @positions = Position.all
     #render layout: "back/map"
     #@positions = Position.all
