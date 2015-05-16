@@ -25,3 +25,4 @@ customers.each{|customer|
 }
 sleep 10
 end
+}
