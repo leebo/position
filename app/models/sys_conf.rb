@@ -4,4 +4,6 @@ class SysConf
   field :name,type: String
   field :value,type: String
 
+
+
 end

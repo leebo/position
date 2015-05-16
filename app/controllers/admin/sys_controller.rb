@@ -8,6 +8,7 @@ class Admin::SysController < Admin::BaseController
 
   end
   def complete_config_location
+
   end
 
   #配置报警距离
@@ -15,7 +16,13 @@ class Admin::SysController < Admin::BaseController
 
   end
   def complete_config_distance
-
+     params[:file].read.split("\r\n").each{|line|
+         sysconf = SysConf.new
+         sysconf.name = line.split(",")[0]
+         sysconf.name = line.split(",")[1]
+         sysconf.save
+         }
+    redirect_to "/admin/home"
   end
   def config_measure
 
