@@ -13,9 +13,12 @@
     map.enableScrollWheelZoom();                        //启用滚轮放大缩小
     if (document.createElement('canvas').getContext) {  // 判断当前浏览器是否支持绘制海量点
         var points = [];  // 添加海量点数据
-        for (var i = 0; i < data.data.length; i++) {
-            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
-        }
+//        for (var i = 0; i < data.data.length; i++) {
+//            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
+//        }
+          <% @positions.each do |position| %>
+                  points.push(new BMap.Point("<=%position.geo['lat'].to_f, position.geo['lng'].to_f%>"))
+          <% end %>
         var options = {
             size: BMAP_POINT_SIZE_SMALL,
             shape: BMAP_POINT_SHAPE_STAR,

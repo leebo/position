@@ -11,6 +11,7 @@ class Admin::CustomersController < Admin::BaseController
 
   #地图方式列出人员的位置
   def index_map
+    @positions = Position.all
     #render layout: "back/map"
     #@positions = Position.all
   end
@@ -54,9 +55,7 @@ class Admin::CustomersController < Admin::BaseController
 
   #批量导入用户，与bulk_new配对使用
   def create_bulk
-
     Customer.import params[:file]
-
     redirect_to "/admin/home"
   end
 

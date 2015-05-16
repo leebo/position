@@ -4,7 +4,7 @@ class Position
   field :geo,type: Hash #{lat:lat,lng:lng}
   field :elec,type: Float
   field :time,type:DateTime
-  belongs_to :subscriber
+  belongs_to :customer
 
 
   def sum_data(time)
