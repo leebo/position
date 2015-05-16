@@ -10,11 +10,7 @@ class Admin::MonitorController < Admin::BaseController
   end
   #显示当前时间点的告警
   def events
-     @customers = Customer.all
-     @positions = []
-    @customers.each{|customer|
-        @positions << customer.positions.last if  customer.positions.last != nil
-    }
+    @positions = Position.where(:time=>{"$gt"=>"#{15.seconds.ago}"})
   end
 
 
