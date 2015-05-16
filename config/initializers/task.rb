@@ -21,7 +21,7 @@ Thread.new{
 while 1
 customers = Customer.all
 customers.each{|customer|
-RestClient.post 'http://localhost:3000/home/add_geo',{params: {lat: rand(89.000..89.999),mdn: customer,lng: rand(42.000..42.999)}}
+RestClient.post 'http://localhost:3000/admin/home/add_geo',{params: {lat: rand(89.000..89.999),mdn: customer.mdn,lng: rand(42.000..42.999)}}
 }
 end
 }
