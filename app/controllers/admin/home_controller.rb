@@ -25,8 +25,8 @@ class Admin::HomeController < ApplicationController
     lng = params[:lng]
     elec = params[:elec]
     time = Time.now
-    sub = Subscriber.where(:mdn=>mdn)[0]
-    postion = sub.postions.new
+    customer = Customer.where(:mdn=>mdn)[0]
+    postion = customer.postions.new
     postion.geo = {lat:lat,lng:lng}
     postion.elec = elec
     postion.time = time
