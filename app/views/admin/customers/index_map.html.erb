@@ -16,9 +16,10 @@
 //        for (var i = 0; i < data.data.length; i++) {
 //            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
 //        }
-          <% @positions.each do |position| %>
-                  points.push(new BMap.Point("<=%position.geo['lat'].to_f, position.geo['lng'].to_f%>"))
-          <% end %>
+        <% @positions.each do |position| %>
+        points.push(new BMap.Point(<%=position.geo[:lat]%>,<%=position.geo[:lng]%> ));
+        <% end %>
+        //alert(points[100][1]);
         var options = {
             size: BMAP_POINT_SIZE_SMALL,
             shape: BMAP_POINT_SHAPE_STAR,
