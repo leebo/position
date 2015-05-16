@@ -2,8 +2,10 @@ class Position
   include Mongoid::Document
   include Mongoid::Timestamps
   field :geo,type: Hash #{lat:lat,lng:lng}
-  field :elec,type: Float
-  field :time,type:DateTime
+  field :lat,type: Float #纬度
+  field :lng,type: Float #经度
+  field :elec,type: Float #电量
+  field :time,type:DateTime #上传时间，终端上传的时间。
   belongs_to :customer
 
 
