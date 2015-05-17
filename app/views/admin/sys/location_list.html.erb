@@ -1,31 +1,27 @@
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4cd5996f3340ae81a2aa63f1a644eb60"></script>
   <div class="panel panel-default">
-    <div class="panel-heading font-bold">吐鲁番重点地区</div>
-    <div class="panel-body">
+    <div class="panel-heading font-bold" content="true">吐鲁番重点地区</div>
+    <div class="table-responsive">
+      <table class="table table-striped b-t b-light">
+        <thead>
+        <tr>
+          <th>名    称</th>
+          <th>经    度</th>
+          <th>纬    度</th>
+        </tr>
+        </thead>
+        <tbody>
 
-      <%=form_tag save_config_location_admin_sys_path do %>
+        <% @targets.each do |target| %>
+            <tr>
+              <td><%= target.name %></td>
+              <td><%= target.point["lat"] %></td>
+              <td><%= target.point["lng"] %></td>
 
-          <div class="form-group">
-            <label class="col-lg-2 control-label">地点</label>
-            <div class="col-lg-10">
-              <input type="text" name="name" class="form-control" placeholder="地点">
-            </div>
-
-            <label class="col-lg-2 control-label">经度</label>
-            <div class="col-lg-10">
-              <input type="text" name="lat" class="form-control" placeholder="经度">
-            </div>
-            <label class="col-lg-2 control-label">纬度</label>
-            <div class="col-lg-10">
-              <input type="text" name="lng" class="form-control" placeholder="纬度">
-            </div>
-          <div class="form-group">
-            <div class="col-lg-offset-2 col-lg-10">
-              <button type="submit" class="btn btn-sm btn-info">确定</button>
-            </div>
-          </div>
-
-      <% end %>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 <div id="mapall">aaa</div>
