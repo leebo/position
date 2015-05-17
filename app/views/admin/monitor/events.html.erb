@@ -22,8 +22,8 @@
     map.enableScrollWheelZoom();                        //启用滚轮放大缩小
     if (document.createElement('canvas').getContext) {  // 判断当前浏览器是否支持绘制海量点
         var points = [];  // 添加海量点数据
-        <% @positions.each do |position|%>
-        points.push(new BMap.Point(<%=position.geo[:lat]%>,<%=position.geo[:lng]%>))
+        <% @arrs.each do |arr|%>
+        points.push(new BMap.Point(<%=arr[0]%>,<%=arr[1]%>))
         <% end %>
 
         var options = {
