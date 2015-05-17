@@ -14,7 +14,7 @@ class Admin::SysController < Admin::BaseController
     target.name = params[:name]
     target.point = {"lat"=>params[:lat],"lng"=>params[:lng]}
     target.save
-    redirect_to  '/admin/sys/config_location'
+    redirect_to  '/admin/sys/location_list'
   end
   def complete_config_location
 
