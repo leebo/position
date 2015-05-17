@@ -1,0 +1,22 @@
+Index: app/controllers/admin/customers_controller.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/controllers/admin/customers_controller.rb	(revision 3f712dc829c6ab34de65f1e98bdd07f796adc3bf)
++++ app/controllers/admin/customers_controller.rb	(revision )
+@@ -11,13 +11,7 @@
+ 
+   #地图方式列出人员的位置
+   def index_map
+-    @customers = Customer.all
+-    @customers.each{|customer|
+-
+-    }
+-    @positions = Position.all
+-    #render layout: "back/map"
+-    #@positions = Position.all
++    @positions = Position.where(:time=>{"$gt"=>"#{15.seconds.ago}"})
+   end
+ 
+   # GET /admin/customers/1

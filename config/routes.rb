@@ -82,6 +82,7 @@ Rails.application.routes.draw do
         post "complete_config_distance"
         get 'config_measure'
         post "complete_config_measure"
+        post "save_config_location"
       end
     end
     resources :monitor do

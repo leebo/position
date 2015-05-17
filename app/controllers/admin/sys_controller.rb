@@ -5,6 +5,10 @@ class Admin::SysController < Admin::BaseController
   # GET /admin/subscribers.json
   #配置关键位置：点+半径
   def config_location
+    @sysconfes = SysConf.new
+  end
+  #存取配置关键位置：点+半径
+  def save_config_location
 
   end
   def complete_config_location
