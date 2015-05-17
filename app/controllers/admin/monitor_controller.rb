@@ -6,7 +6,12 @@ class Admin::MonitorController < Admin::BaseController
 
   #动态显示当前时间点的customers的位置图
   def customers
-    #render layout: "back/map"
+    customer = Customer.first
+    @single_customer_position = []
+    positions = customer.positions.all
+    positions.each{|position|
+      @single_customer_position <<  position.geo.values
+    }
   end
   #显示当前时间点的告警
   def events
