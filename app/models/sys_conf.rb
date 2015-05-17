@@ -2,7 +2,7 @@ class SysConf
   include Mongoid::Document
 
   field :name,type: String
-  field :value,type: Hash
+  field :value,type: String
 
 
      #计算距离，用于告警

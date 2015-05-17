@@ -10,10 +10,10 @@ class Admin::SysController < Admin::BaseController
   end
   #存取配置关键位置：点+半径
   def save_config_location
-    sysconf = SysConf.new
-    sysconf.name = params[:name]
-    sysconf.value = {"lat"=>params[:lat],"lng"=>params[:lng]}
-    sysconf.save
+    target = Target.new
+    target.name = params[:name]
+    target.point = {"lat"=>params[:lat],"lng"=>params[:lng]}
+    target.save
     redirect_to  '/admin/sys/config_location'
   end
   def complete_config_location
@@ -28,7 +28,7 @@ class Admin::SysController < Admin::BaseController
      params[:file].read.split("\r\n").each{|line|
          sysconf = SysConf.new
          sysconf.name = line.split(",")[0]
-         sysconf.name = line.split(",")[1]
+         sysconf.value = line.split(",")[1]
          sysconf.save
          }
     redirect_to "/admin/home"
