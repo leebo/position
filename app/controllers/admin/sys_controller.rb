@@ -20,6 +20,11 @@ class Admin::SysController < Admin::BaseController
 
   end
 
+  def location_list
+    @targets = Target.all
+
+  end
+
   #配置报警距离
   def config_distance
 

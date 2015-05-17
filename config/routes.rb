@@ -83,6 +83,7 @@ Rails.application.routes.draw do
         get 'config_measure'
         post "complete_config_measure"
         post "save_config_location"
+        get "location_list"
       end
     end
     resources :monitor do
