@@ -6,10 +6,15 @@ class Admin::SysController < Admin::BaseController
   #配置关键位置：点+半径
   def config_location
     @sysconfes = SysConf.new
+    @sys_confes = SysConf.all
   end
   #存取配置关键位置：点+半径
   def save_config_location
-
+    sysconf = SysConf.new
+    sysconf.name = params[:name]
+    sysconf.value = {"lat"=>params[:lat],"lng"=>params[:lng]}
+    sysconf.save
+    redirect_to  '/admin/sys/config_location'
   end
   def complete_config_location
 
