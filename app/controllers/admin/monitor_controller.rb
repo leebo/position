@@ -6,7 +6,7 @@ class Admin::MonitorController < Admin::BaseController
 
   #动态显示当前时间点的customers的位置图
   def customers
-    customer = Customer.first
+    customer = Customer.where(:mdn=>params[:mdn])[0]
     @single_customer_position = []
     positions = customer.positions.all
     positions.each{|position|

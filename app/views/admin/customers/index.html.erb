@@ -20,6 +20,7 @@
           <td><%= customer.emsi %></td>
           <td><%= customer.imei %></td>
           <td>显示|删除|编辑</td>
+          <td><%= link_to("路径显示",{:controller=>"admin/monitor",:action=>"customers",:mdn=>customer.mdn})%></td>
         </tr>
     <% end %>
     </tbody>
