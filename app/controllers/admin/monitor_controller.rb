@@ -20,7 +20,7 @@ class Admin::MonitorController < Admin::BaseController
     sysconf = SysConf.first.value
     @arrs = []
     @positions.each{|position|
-     @arrs << [position.lat,position.lng] if  SysConf.distance(target,[position.lat,position.lng]).to_i < sysconf
+     @arrs << [position.lat,position.lng] if  (SysConf.distance(target,[position.lat,position.lng]).to_i < sysconf.to_i)
     }
   end
 
