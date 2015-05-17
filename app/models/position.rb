@@ -2,10 +2,8 @@ class Position
   include Mongoid::Document
   include Mongoid::Timestamps
   field :emsi,type: String #卡物理号，可以找到对应的customer
-  field :geo,type: Hash #{lat:lat,lng:lng}
   field :lat,type: Float #纬度
   field :lng,type: Float #经度
-  field :elec,type: Float #电量
   field :power,type: Float #手机电量
   field :time,type:DateTime #上传时间，终端上传的时间。
   belongs_to :customer

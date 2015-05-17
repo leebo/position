@@ -16,14 +16,14 @@ class Customer
     end
   end
 
-  def add_name(name,mdn,emsi,imei)
-    subscriber = Subscriber.new
-    subscriber.name = name
-    subscriber.mdn = mdn
-    subscriber.emsi = emsi
-    subscriber.imei = imei
-    subscriber.save
-  end
+  # def add_name(name,mdn,emsi,imei)
+  #   subscriber = Subscriber.new
+  #   subscriber.name = name
+  #   subscriber.mdn = mdn
+  #   subscriber.emsi = emsi
+  #   subscriber.imei = imei
+  #   subscriber.save
+  # end
 
 
 end

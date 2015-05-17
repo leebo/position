@@ -17,7 +17,7 @@
 //            points.push(new BMap.Point(data.data[i][0], data.data[i][1]));
 //        }
         <% @positions.each do |position| %>
-        points.push(new BMap.Point(<%=position.geo[:lat]%>,<%=position.geo[:lng]%> ));
+        points.push(new BMap.Point(<%=position.lat%>,<%=position.lng%> ));
         <% end %>
         //alert(points[100][1]);
         var options = {

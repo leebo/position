@@ -10,19 +10,17 @@ class Admin::MonitorController < Admin::BaseController
     @single_customer_position = []
     positions = customer.positions.all
     positions.each{|position|
-      @single_customer_position <<  position.geo.values
+      @single_customer_position <<  [position.lat,position.lng]
     }
   end
   #显示当前时间点的告警
   def events
     @positions = Position.where(:time=>{"$gt"=>"#{15.seconds.ago}"})
     target = Target.first.point.values
-    puts "aaaaa"
     sysconf = SysConf.first.value
-    puts "bbbbbbb"
     @arrs = []
     @positions.each{|position|
-     @arrs << position.geo.values if  SysConf.distance(target,position.geo.values).to_i < sysconf
+     @arrs << [position.lat,position.lng] if  SysConf.distance(target,[position.lat,position.lng]).to_i < sysconf
     }
   end
 

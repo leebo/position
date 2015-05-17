@@ -9,30 +9,21 @@ class Admin::HomeController < ApplicationController
 
   end
 
-  def single_person
-    if request.post?
-      puts "11111111222222222222222222222222222"
-      redirect_to "/home"
-    end
-   puts "11111111111111111111111111111111111"
-
-  end
-
-
   def add_geo
      puts params
      mdn = params[:params][:mdn]
      lat = params[:params][:lat]
      lng = params[:params][:lng]
-    elec = params[:params][:elec]
+     power = params[:params][:power]
     time = Time.now
     customer = Customer.where(:mdn=>mdn)[0]
     position = customer.positions.new
-    position.geo = {lat:lat,lng:lng}
-    position.elec = elec
+     position.emsi = customer.emsi
+     position.lat = lat
+     position.lng = lng
+    position.power = power
     position.time = time
     position.save
-    puts position
     render :text=>"ok"
   end
 
