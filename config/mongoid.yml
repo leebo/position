@@ -106,12 +106,12 @@ development:
       database: position_dev
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts:
-        - 112.124.57.143:27017
-      username: lee
-      password: lee123456
       #hosts:
-      #  - localhost:27017
+      #  - 112.124.57.143:27017
+      #username: lee
+      #password: lee123456
+      hosts:
+        - localhost:27017
   options:
     raise_not_found_error: false
 
