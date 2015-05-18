@@ -38,10 +38,10 @@ class Admin::SysController < Admin::BaseController
          }
     redirect_to "/admin/home"
   end
-  def config_measure
+  def config_plan
 
   end
-  def complete_config_measure
+  def complete_config_plan
 
   end
 
