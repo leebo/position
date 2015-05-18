@@ -5,10 +5,10 @@
     <%= form_tag complete_config_distance_admin_sys_path, multipart: true do %>
 
         <div class="form-group">
-          <label class="col-lg-2 control-label">文件</label>
+          <label class="col-sm-2 control-label" for="input-id-1">距离</label>
 
-          <div class="col-lg-10">
-            <input type="file" name="file" class="form-control" placeholder="文件">
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="sys_conf[distance]" id="input-id-1">
           </div>
         </div>
 
