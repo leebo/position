@@ -16,7 +16,7 @@ class Admin::MonitorController < Admin::BaseController
 
   #显示当前时间点的告警
   def positions
-    @positions = Position.where(:time => {"$gt" => "#{30.hours.ago}"})
+    @positions = Position.where(:time => {"$gt" => "#{15.seconds.ago}"})
     target = Target.first.point.values
     sysconf = SysConf.first.value
     @arrs = []
