@@ -50,7 +50,8 @@ gem 'carrierwave-mongoid'
 gem 'mini_magick'
 gem 'mongoid-grid_fs'
 #聚集度
-gem 'kmeans-clusterer'
+#gem 'kmeans-clusterer'
+
 gem 'rest-client'
 
 gem "rufus-scheduler"
