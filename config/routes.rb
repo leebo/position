@@ -93,6 +93,7 @@ Rails.application.routes.draw do
       collection do
         get 'customers'
         get "events"
+        get 'positions'
       end
     end
 

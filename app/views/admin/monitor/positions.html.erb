@@ -10,34 +10,27 @@
     checkSize();
 
     var map = new BMap.Map("mapall");
-    map.centerAndZoom(new BMap.Point(89.626, 42.858), 13);
-    map.enableScrollWheelZoom(true);
+    map.centerAndZoom(new BMAP.Point(89.626, 42.858), 13);
     options = {};
     var pointCollectionBig;
+
     setInterval(function () {
         $.ajax({
             type: "GET",
-            url: "/admin/monitor/positions",
+            url: "/admin/monitor/events"
             success: function (data) {
-                //map.removeOverlay(pointCollectionBig);
-                var map = new BMap.Map("mapall");
-                map.centerAndZoom(new BMap.Point(89.626, 42.858), 13);
-                map.enableScrollWheelZoom(true);
-                options = {};
+                map.removeOverlay(pointCollectionBig);
                 var points = [];
-                for (i = 0; i < data.length; i++) {
-                    points.push(data[i][0], data[i][1]);
+                for (i = 0; i < data.positions.length; i++) {
+                    points.push(data.positions[i].lat, data.positions[i].lng);
                 }
-                var pointCollection = new BMap.PointCollection(points, options);
+                var pointCollection = new BMAP.PointCollection(points, options)
                 map.addOverlay(pointCollection);
                 pointCollectionBig = pointCollection;
             }
         });
 
-    }, 15000);
-
-
-
+    }, 15000)
 
 </script>
 
