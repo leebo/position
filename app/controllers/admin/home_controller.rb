@@ -10,21 +10,21 @@ class Admin::HomeController < ApplicationController
   end
 
   def add_geo
-     puts params
-     mdn = params[:params][:mdn]
-     lat = params[:params][:lat]
-     lng = params[:params][:lng]
-     power = params[:params][:power]
+    puts params
+    mdn = params[:params][:mdn]
+    lat = params[:params][:lat]
+    lng = params[:params][:lng]
+    power = params[:params][:power]
     time = Time.now
-    customer = Customer.where(:mdn=>mdn)[0]
+    customer = Customer.where(:mdn => mdn)[0]
     position = customer.positions.new
-     position.emsi = customer.emsi
-     position.lat = lat
-     position.lng = lng
+    position.emsi = customer.emsi
+    position.lat = lat
+    position.lng = lng
     position.power = power
     position.time = time
     position.save
-    render :text=>"ok"
+    render json: {status: "ok"}
   end
 
 
@@ -83,13 +83,13 @@ class Admin::HomeController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_home
-      @admin_home = Admin::Home.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_home
+    @admin_home = Admin::Home.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_home_params
-      params[:admin_home]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_home_params
+    params[:admin_home]
+  end
 end
