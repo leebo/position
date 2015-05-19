@@ -2,36 +2,35 @@
 
 <div id="mapall"></div>
 <script type="text/javascript">
-  checkSize();
+    checkSize();
 
-  var map = new BMap.Map("mapall");
-  map.centerAndZoom(new BMap.Point(89.626, 42.858), 13);
-  map.enableScrollWheelZoom(true);
-  var options = {};
-  var pointCollection;
+    var map = new BMap.Map("mapall");
+    map.centerAndZoom(new BMap.Point(89.626, 42.858), 13);
+    map.enableScrollWheelZoom(true);
+    var options = {};
+    var pointCollection;
 
-  setInterval(function () {
-    $.ajax({
-      type: "GET",
-      url: "/admin/monitor/positions",
-      success: function (data) {
-        map.removeOverlay(pointCollection);
-        var points = [];
-        for (i = 0; i < data.length; i++) {
-          points.push(new BMap.Point(data[i][0], data[i][1]));
-        }
-        pointCollection = new BMap.PointCollection(points, options);
-        map.addOverlay(pointCollection);
-      }
-    });
+    setInterval(function () {
+        $.ajax({
+            type: "GET",
+            url: "/admin/monitor/positions",
+            success: function (data) {
+                map.removeOverlay(pointCollection);
+                var points = [];
+                for (i = 0; i < data.length; i++) {
+                    points.push(new BMap.Point(data[i][0], data[i][1]));
+                }
+                pointCollection = new BMap.PointCollection(points, options);
+                map.addOverlay(pointCollection);
+            }
+        });
 
-  }, 15000);
-  function checkSize() {
-      var h = document.documentElement.clientHeight;
-      document.getElementById('aside').style.height = h - 80 + "px";
-      document.getElementById('mapall').style.height = h - 80 + "px";
-  }
-
+    }, 15000);
+    function checkSize() {
+        var h = document.documentElement.clientHeight;
+        document.getElementById('aside').style.height = h - 80 + "px";
+        document.getElementById('mapall').style.height = h - 80 + "px";
+    }
 
 
 </script>

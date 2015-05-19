@@ -25,10 +25,6 @@ class Admin::MonitorController < Admin::BaseController
       break if @arrs.size > 100
     }
 
-    # respond_to do |format|
-    #  format.json {render json: @arrs.first}
-    #  format.json { render json: @article }
-    # end
     render json: @arrs
   end
 
