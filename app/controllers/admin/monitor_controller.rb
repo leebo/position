@@ -16,9 +16,10 @@ class Admin::MonitorController < Admin::BaseController
 
   #显示当前时间点的告警
   def positions
-    @positions = Position.where(:time => {"$gt" => "#{15.seconds.ago}"})
+    @positions = Position.where(:time => {"$gt" => "#{150.seconds.ago}"})
     target = Target.first.point.values
     sysconf = SysConf.first.value
+    sysconf = '1000'
     @arrs = []
     @positions.each { |position|
       @arrs << [position.lat, position.lng] if (SysConf.distance(target, [position.lat, position.lng]).to_i < sysconf.to_i)
