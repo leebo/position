@@ -10,12 +10,14 @@
 
     var targets = [];
     targetOptions = {
-        size: BMAP_POINT_SIZE_SMALL,
+        size: BMAP_POINT_SIZE_BIG,
         shape: BMAP_POINT_SHAPE_STAR,
         color: '#d340c3'
     };
     <% Target.all.each do |x| %>
     targets.push(new BMap.Point(<%=x.point[:lat]%>, <%=x.point[:lng]%>));
+    var mPoint = new BMap.Point(<%=x.point[:lat]%>, <%=x.point[:lng]%>);
+    map.addOverlay(new BMap.Circle(mPoint,3000));
     <% end %>
     targetCollection = new BMap.PointCollection(targets, targetOptions);
     map.addOverlay(targetCollection);

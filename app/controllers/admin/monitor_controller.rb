@@ -19,7 +19,7 @@ class Admin::MonitorController < Admin::BaseController
     @positions = Position.where(:time => {"$gt" => "#{150.seconds.ago}"})
     target = Target.first.point.values
     sysconf = SysConf.first.value
-    sysconf = '10000'
+    sysconf = '3000'
     @arrs = []
     @positions.each { |position|
       @arrs << [position.lat, position.lng] if (SysConf.distance(target, [position.lat, position.lng]).to_i < sysconf.to_i)
