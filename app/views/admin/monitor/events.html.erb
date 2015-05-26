@@ -7,6 +7,20 @@
     var map = new BMap.Map("mapall");
     map.centerAndZoom(new BMap.Point(89.626, 42.858), 13);
     map.enableScrollWheelZoom(true);
+
+    var targets = [];
+    targetOptions = {
+        size: BMAP_POINT_SIZE_SMALL,
+        shape: BMAP_POINT_SHAPE_STAR,
+        color: '#d340c3'
+    };
+    <% Target.all.each do |x| %>
+    targets.push(new BMap.Point(<%=x.point[:lat]%>, <%=x.point[:lng]%>));
+    <% end %>
+    targetCollection = new BMap.PointCollection(targets, targetOptions);
+    map.addOverlay(targetCollection);
+
+
     var options = {};
     var pointCollection;
 
